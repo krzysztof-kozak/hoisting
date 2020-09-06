@@ -1,4 +1,4 @@
-// hoisting var vs let/const
+// Hoisting var vs let/const
 
 function hoist(){
   console.log(foo); // foo was moved up to the top of its scope but it was not assigned any value yet, so the default unefined value remains!
@@ -10,12 +10,12 @@ function hoist(){
 
 }
 
-// hoist();
+hoist();
 // var = hoisted, and declared, and initialized, but not assigned!
 // const/let = hoisted, and declared, but NOT initialized and not assigned!
 
 
-// hoisting function declaration vs function expression
+// Hoisting function declaration vs function expression
 
 hoistFnDeclaration(); // The entire function is hoisted and we get the result we want:)
 
@@ -28,3 +28,21 @@ hoistFnExpression(); // Only the variable is hoisted, and not the entire functio
 const hoistFnExpression = function() {
   console.log("Hoist me up, Scotty!")
 }
+
+
+// Variable assignment (using var) priority over function assigment
+
+var baz = 25;
+
+function baz() {
+  console.log('I\'m a function!')
+}
+console.log(typeof baz); // baz is a number because variable assignment takes priorit!
+
+
+var abc;
+
+function abc() {
+  console.log('I\'m a function!')
+}
+console.log(typeof abc); // baz is a function because function declaration takes priority over variable declaration!
