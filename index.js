@@ -1,4 +1,5 @@
-// Hoisting var vs let/const
+/* 
+**** Hoisting var vs let/const ****
 
 function hoist(){
   console.log(foo); // foo was moved up to the top of its scope but it was not assigned any value yet, so the default unefined value remains!
@@ -14,8 +15,10 @@ hoist();
 // var = hoisted, and declared, and initialized, but not assigned!
 // const/let = hoisted, and declared, but NOT initialized and not assigned!
 
+*/
 
-// Hoisting function declaration vs function expression
+
+/* **** Hoisting function declaration vs function expression ****
 
 hoistFnDeclaration(); // The entire function is hoisted and we get the result we want:)
 
@@ -29,8 +32,10 @@ const hoistFnExpression = function() {
   console.log("Hoist me up, Scotty!")
 }
 
+*/
 
-// Variable assignment (using var) priority over function assigment
+
+/* **** Variable assignment (using var) priority over function assigment ****
 
 var baz = 25;
 
@@ -63,3 +68,29 @@ function asd() {
 
 console.log(typeof abc); // Error: Identifier 'xyz' has already been declared
 console.log(typeof asd); // Error: Identifier 'asd' has already been declared
+
+*/
+
+
+/* 
+****  Hoisting: Classes ****
+*/
+
+const duck = new Animal('duck'); // Error: Cannot access Animal before initialization. This works the same as hoisting let and const variables; they get hoisted, and declared, but NOT initialized and not assigned!
+
+class Animal { // We could use a class expression(  const Animal = class{...}  ) here to the same effect...
+  constructor(species) {
+    this.species = species;
+  }
+}
+console.log(duck);
+
+var duck2 = new Animal2('duck'); // Error: Animal2 is not a constructor This works the same as hoisting var variables; they get hoisted, and declared, and initialized and not assigned! They have the default 'undefined' value and as such the constructor and any other class-related things do not work :()
+
+var Animal2 = class {
+  constructor(species) {
+    this.species = species;
+  }
+}
+console.log(duck2);
+
