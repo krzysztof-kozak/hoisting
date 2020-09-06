@@ -46,3 +46,20 @@ function abc() {
   console.log('I\'m a function!')
 }
 console.log(typeof abc); // baz is a function because function declaration takes priority over variable declaration!
+
+
+// We don't need to worry about these proiroties if we use const or let :)
+
+const xyz = 5;
+let asd;
+
+function xyz() {
+  console.log('I\'m a function!')
+}
+
+function asd() {
+  console.log('I\'m a function!')
+}
+
+console.log(typeof abc); // Error: Identifier 'xyz' has already been declared
+console.log(typeof asd); // Error: Identifier 'asd' has already been declared
