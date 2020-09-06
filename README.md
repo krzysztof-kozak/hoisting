@@ -1,0 +1,2 @@
+# Hoisting
+Learning about hoisting
